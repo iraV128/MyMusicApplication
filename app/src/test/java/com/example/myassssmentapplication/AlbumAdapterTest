@@ -1,0 +1,20 @@
+package com.example.myassssmentapplication
+
+import org.junit.Test
+import org.junit.Assert.assertEquals
+
+class AlbumAdapterTest {
+
+    @Test
+    fun `album adapter should update album list correctly`() {
+        val adapter = AlbumAdapter {}
+        val albums = listOf(
+            Album("Artist A", "First Album", 2020, "Pop", 12, "Just a test", "Sample Track")
+        )
+
+        adapter.setAlbums(albums)
+
+        // Test the count of items (since we can't access Views in unit test)
+        assertEquals(1, adapter.itemCount)
+    }
+}

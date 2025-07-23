@@ -1,0 +1,19 @@
+package com.example.myassssmentapplication
+
+import androidx.lifecycle.ViewModel
+import org.junit.Assert.assertEquals
+import org.junit.Test
+
+class SampleViewModel : ViewModel() {
+    fun multiplyByThree(n: Int): Int = n * 3
+}
+
+class SampleViewModelTest {
+
+    @Test
+    fun `multiplyByThree should return correct result`() {
+        val viewModel = SampleViewModel()
+        val result = viewModel.multiplyByThree(5)
+        assertEquals(15, result)
+    }
+}

@@ -1,0 +1,36 @@
+package com.example.myassssmentapplication
+
+import com.google.gson.Gson
+import org.junit.Test
+import org.junit.Assert.assertEquals
+
+class DashboardResponseTest {
+
+    @Test
+    fun `dashboard response gson parsing should work`() {
+        val json = """
+            {
+              "entities": [
+                {
+                  "artistName": "Taylor Swift",
+                  "albumTitle": "Midnights",
+                  "releaseYear": 2022,
+                  "genre": "Pop",
+                  "trackCount": 13,
+                  "description": "A chill and dreamy pop album",
+                  "popularTrack": "Anti-Hero"
+                }
+              ],
+              "entityTotal": 1
+            }
+        """.trimIndent()
+
+        val response = Gson().fromJson(json, DashboardResponse::class.java)
+
+        assertEquals(1, response.entityTotal)
+        val album = response.entities[0]
+        assertEquals("Taylor Swift", album.artistName)
+        assertEquals("Midnights", album.albumTitle)
+        assertEquals(2022, album.releaseYear)
+    }
+}
