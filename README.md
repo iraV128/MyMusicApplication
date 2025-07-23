@@ -1,8 +1,8 @@
 Login Details:
 
-user name: princes ira
+First name: princes ira
 
-password: s8146150
+Student Id: s8146150
 
 
 
